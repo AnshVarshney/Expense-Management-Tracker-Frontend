@@ -289,41 +289,41 @@ tr:hover{
   background-color: #e5e0e0;
 }
 
-:where(.css-dev-only-do-not-override-p7e5j5) .ant-form-item .ant-form-item-label>label {
+:where(.css-p7e5j5) .ant-form-item .ant-form-item-label>label {
   font-size: 20px !important;
 }
-:where(.css-dev-only-do-not-override-p7e5j5).ant-table-wrapper .ant-table{
+:where(.css--p7e5j5).ant-table-wrapper .ant-table{
   background-color: #6b6969 !important;
   color: #e5e0e0 !important;
   /* border: 2px solid red; */
 }
 
-:where(.css-dev-only-do-not-override-p7e5j5).ant-table-wrapper:hover .ant-table :hover{
+:where(.css-p7e5j5).ant-table-wrapper:hover .ant-table :hover{
   background-color: #6b6969 !important;
   color: #837f7f !important;
 }
 
-:where(.css-dev-only-do-not-override-p7e5j5).ant-pagination .ant-pagination-item-active {
+:where(.css-p7e5j5).ant-pagination .ant-pagination-item-active {
   font-weight: 600 !important;  
   background-color: #837e7e !important;
   border-color: #e4e7eb !important ;
   color: white !important;
 }
 
-:where(.css-dev-only-do-not-override-p7e5j5)[class^="ant-select"] [class^="ant-select"], :where(.css-dev-only-do-not-override-p7e5j5)[class*=" ant-select"] [class^="ant-select"]{
+:where(.css-p7e5j5)[class^="ant-select"] [class^="ant-select"], :where(.css-dev-only-do-not-override-p7e5j5)[class*=" ant-select"] [class^="ant-select"]{
   background-color: rgb(47, 46, 46) !important;
   color: #e5e0e0 !important;
   /* border: 2px solid red; */
 }
 
-:where(.css-dev-only-do-not-override-p7e5j5).ant-select-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled){
+:where(.css-p7e5j5).ant-select-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled){
   background-color: rgb(47, 46, 46) !important;
 }
 
-:where(.css-dev-only-do-not-override-p7e5j5).ant-table-wrapper .ant-table-thead >tr>th{
+:where(.css-p7e5j5).ant-table-wrapper .ant-table-thead >tr>th{
   background-color: #6b6969 !important;
 }
-:where(.css-dev-only-do-not-override-p7e5j5).ant-select .ant-select-selection-item{
+:where(.css-p7e5j5).ant-select .ant-select-selection-item{
   background-color: rgb(47, 46, 46) !important;
   color: #e5e0e0 !important;
 }
