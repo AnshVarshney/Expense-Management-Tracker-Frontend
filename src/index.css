@@ -1,23 +1,8 @@
-
-
-
-
-
-
-
-
-
 /* <style> */
-
-
 .card{
   background-color: #6b6969;
   border: 2px solid black;
 }
-
-
-
-
 
 .card-header{
   border-bottom: 2px solid black;
@@ -35,12 +20,10 @@
   color:black;
 }
 
-
 .navbar-brand{
   color: #e5e0e0;
   font-size: 2.2rem;
 }
-
 
 .ant-input {
   border-radius: 5px !important;
@@ -49,9 +32,6 @@
 .ant-col {
   width: 50%;
 }
-
-
-
 
 /* transaction page */
 .filters {
@@ -108,31 +88,8 @@
   /* border: 2px solid red; */
 }
 
-:where(.css-dev-only-do-not-override-p7e5j5).ant-table-wrapper .ant-table{
-  background-color: #6b6969;
-  color: #e5e0e0;
-  /* border: 2px solid red; */
-}
-
-:where(.css-dev-only-do-not-override-p7e5j5).ant-table-wrapper:hover .ant-table :hover{
-  background-color: #6b6969;
-  color: #837f7f;
-}
-
-:where(.css-dev-only-do-not-override-p7e5j5).ant-pagination .ant-pagination-item-active {
-  font-weight: 600;
-  background-color: #837e7e;
-  border-color: #e4e7eb;
-  color: white;
-}
-
 tr:hover{
   background-color: pink !important;
-}
-
-
-:where(.css-dev-only-do-not-override-p7e5j5).ant-table-wrapper .ant-table-thead >tr>th{
-  background-color: #6b6969;
 }
 
 .filters {
@@ -204,20 +161,7 @@ tr:hover{
 }
 
 
-:where(.css-dev-only-do-not-override-p7e5j5).ant-select .ant-select-selection-item{
-  background-color: rgb(47, 46, 46);
-  color: #e5e0e0;
-}
 
-:where(.css-dev-only-do-not-override-p7e5j5)[class^="ant-select"] [class^="ant-select"], :where(.css-dev-only-do-not-override-p7e5j5)[class*=" ant-select"] [class^="ant-select"]{
-  background-color: rgb(47, 46, 46);
-  color: #e5e0e0;
-  /* border: 2px solid red; */
-}
-
-:where(.css-dev-only-do-not-override-p7e5j5).ant-select-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled){
-  background-color: rgb(47, 46, 46);
-}
 
 .ant-select-selector{
   background-color: rgb(47, 46, 46) !important;
@@ -345,6 +289,43 @@ tr:hover{
   background-color: #e5e0e0;
 }
 
-:where(.css-dev-only-do-not-override-p7e5j5) .ant-form-item .ant-form-item-label>label {
+/* -dev-only-do-not-override */
+
+:where(.css-p7e5j5) .ant-form-item .ant-form-item-label>label {
   font-size: 20px;
+}
+:where(.css-p7e5j5).ant-table-wrapper .ant-table{
+  background-color: #6b6969;
+  color: #e5e0e0;
+  /* border: 2px solid red; */
+}
+
+:where(.css-p7e5j5).ant-table-wrapper:hover .ant-table :hover{
+  background-color: #6b6969;
+  color: #837f7f;
+}
+
+:where(.css-p7e5j5).ant-pagination .ant-pagination-item-active {
+  font-weight: 600;
+  background-color: #837e7e;
+  border-color: #e4e7eb;
+  color: white;
+}
+
+:where(.css-p7e5j5)[class^="ant-select"] [class^="ant-select"], :where(.css-dev-only-do-not-override-p7e5j5)[class*=" ant-select"] [class^="ant-select"]{
+  background-color: rgb(47, 46, 46);
+  color: #e5e0e0;
+  /* border: 2px solid red; */
+}
+
+:where(.css-p7e5j5).ant-select-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled){
+  background-color: rgb(47, 46, 46);
+}
+
+:where(.css-p7e5j5).ant-table-wrapper .ant-table-thead >tr>th{
+  background-color: #6b6969;
+}
+:where(.css-p7e5j5).ant-select .ant-select-selection-item{
+  background-color: rgb(47, 46, 46);
+  color: #e5e0e0;
 }
