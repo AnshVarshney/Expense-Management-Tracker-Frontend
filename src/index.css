@@ -292,7 +292,7 @@ tr:hover{
 :where(.css-p7e5j5) .ant-form-item .ant-form-item-label>label {
   font-size: 20px !important;
 }
-:where(.css--p7e5j5).ant-table-wrapper .ant-table{
+:where(.css-p7e5j5).ant-table-wrapper .ant-table{
   background-color: #6b6969 !important;
   color: #e5e0e0 !important;
   /* border: 2px solid red; */
