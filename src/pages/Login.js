@@ -24,7 +24,7 @@ const Login = () => {
             navigate('/')
         }catch(error){
             setLoading(false)
-            message.success('something went wrong')
+            message.error('something went wrong')
         }
     }
 
