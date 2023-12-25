@@ -64,7 +64,7 @@ const HomePage = () => {
       render: (text, record) => (
         <div>
           <EditOutlined onClick={() => {
-            console.log(record) 
+            // console.log(record) 
             //  SetEditable(record)
             // re.current=record;
             setEditable(record)
@@ -90,9 +90,9 @@ const HomePage = () => {
       // const token = JSON.parse(localStorage.getItem('user'));
       // const user=await axios.post('/users/get-user',token);
       // console.log(user)
-      console.log(user._id)
+      // console.log(user._id)
       // setLoading(true)
-      const res = await axios.post('/transaction/get-transaction', {
+      const res = await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/get-transaction', {
         userid: user._id,
         frequency,
         selectedDate,
@@ -103,7 +103,7 @@ const HomePage = () => {
       // console.log(res.data.transaction)
     } catch (error) {
       // setLoading(false)
-      console.log(error)
+      // console.log(error)
       message.error("Fetch Issue with Transaction")
     }
   }
@@ -119,7 +119,7 @@ const HomePage = () => {
       const user = JSON.parse(localStorage.getItem('user'))
       setLoading(true)
       if (editable) {
-        await axios.post('/transaction/edit-transaction', {
+        await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/edit-transaction', {
           payload: {
             ...values,
             userid: user._id
@@ -130,7 +130,7 @@ const HomePage = () => {
         message.success("Edited Transaction Successfully")
       }
       else {
-        await axios.post('/transaction/add-transaction', { ...values, userid: user._id })
+        await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/add-transaction', { ...values, userid: user._id })
         setLoading(false)
         message.success("Transaction Added Successfully")
       }
@@ -145,12 +145,12 @@ const HomePage = () => {
   const handleDelete = async (record) => {
     try {
       setLoading(true)
-      await axios.post('/transaction/delete-transaction', { transactionId: record._id })
+      await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/delete-transaction', { transactionId: record._id })
       setLoading(false)
       message.success("Transaction Deleted Successfully")
     } catch (error) {
       setLoading(false)
-      console.log(error)
+      // console.log(error)
       message.error("Unable to Delete")
     }
   }

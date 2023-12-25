@@ -13,8 +13,8 @@ const Login = () => {
     const submitHandler = async (values)=>{
         try{
             setLoading(true)
-            const {data} = await axios.post('/users/login',values)
-            console.log("data",data)
+            const {data} = await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/users/login',values)
+            // console.log("data",data)
             // const user = jwt.decode(data.token)
             // console.log(data.user)
             localStorage.setItem('user',JSON.stringify({...data.user,password:''}))
@@ -24,7 +24,7 @@ const Login = () => {
             navigate('/')
         }catch(error){
             setLoading(false)
-            message.error('something went wrong')
+            message.error('Something went wrong')
         }
     }
 
