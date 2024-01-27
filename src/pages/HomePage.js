@@ -104,7 +104,7 @@ const HomePage = () => {
       //   selectedDate,
       //   type
       // })
-      const res = await axios.post('http://localhost:8080/api/v1/transaction/get-transaction', {
+      const res = await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/get-transaction', {
         frequency,
         selectedDate,
         type
@@ -136,7 +136,7 @@ const HomePage = () => {
       const user = JSON.parse(localStorage.getItem('user'))
       setLoading(true)
       if (editable) {
-        await axios.post('http://localhost:8080/api/v1/transaction/edit-transaction', {
+        await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/edit-transaction', {
           payload: {
             ...values,
             // userid: user._id
@@ -160,7 +160,7 @@ const HomePage = () => {
       }
       else {
         console.log("safsa",values)
-        await axios.post('http://localhost:8080/api/v1/transaction/add-transaction', {...values}, {
+        await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/add-transaction', {...values}, {
           headers: {
             'Authorization': `Bearer ${user}`,
             // 'Content-Type': 'application/json', // Adjust content type as needed
@@ -184,7 +184,7 @@ const HomePage = () => {
     try {
       console.log("del")
       setLoading(true)
-      await axios.post('http://localhost:8080/api/v1/transaction/delete-transaction', { transactionId: record._id },{
+      await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/delete-transaction', { transactionId: record._id },{
         headers: {
           'Authorization': `Bearer ${user}`,
           // 'Content-Type': 'application/json', // Adjust content type as needed

@@ -14,7 +14,7 @@ const Login = () => {
         try{
             setLoading(true)
             // const {data} = await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/users/login',values)
-            const data = await axios.post('http://localhost:8080/api/v1/users/login',values)
+            const data = await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/users/login',values)
             console.log("data",data)
             // const user = jwt.decode(data.token)
             // console.log(data.user)
