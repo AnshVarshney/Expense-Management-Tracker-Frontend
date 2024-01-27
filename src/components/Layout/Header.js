@@ -8,7 +8,8 @@ const Header = () => {
     const navigate=useNavigate();
     const [loginUser, setLoginUser] = useState('');
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user'))
+        const user = JSON.parse(localStorage.getItem('username'))
+        console.log(user)
         if (user) {
             setLoginUser(user)
         }
@@ -17,6 +18,7 @@ const Header = () => {
     const logoutHandler = ()=>{
         message.success('Logout Successfully')
         localStorage.removeItem('user')
+        localStorage.removeItem('username')
         navigate('/login')
     }
 
@@ -31,7 +33,7 @@ const Header = () => {
                         <div className="headings">
                         <Link className="navbar-brand" to="/">Expense-Management</Link>
                         <div className='username navbar-brand'>
-                                    {loginUser && loginUser.name}     
+                                    {loginUser }     
                                     </div>
                         </div>
                         

@@ -23,17 +23,17 @@ const HomePage = () => {
   const [type, setType] = useState("all")
 
   const [editable, setEditable] = useState(null)
-// const[e,sd]=useRef({});
-// const re = useRef({}) 
+  // const[e,sd]=useRef({});
+  // const re = useRef({}) 
 
   // const SetEditable=async(record) =>{
   //     console.log("rr",re.current)
   //      setEditable(record);
   //     console.log('edit',editable);
   // }
-//   useEffect(()=>{
-// re.current={}
-//   },[editable])
+  //   useEffect(()=>{
+  // re.current={}
+  //   },[editable])
 
   // console.log("sett",editable)
 
@@ -75,9 +75,9 @@ const HomePage = () => {
           } />
           <DeleteOutlined onClick={() => handleDelete(record)} className="mx-2" />
         </div>
-      
+
       )
-      
+
     }
   ]
 
@@ -86,19 +86,36 @@ const HomePage = () => {
 
   const getAllTransaction = async () => {
     try {
+      // console.log("aaa")
       const user = JSON.parse(localStorage.getItem('user'))
       // const token = JSON.parse(localStorage.getItem('user'));
       // const user=await axios.post('/users/get-user',token);
       // console.log(user)
       // console.log(user._id)
       // setLoading(true)
-      const res = await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/get-transaction', {
-        userid: user._id,
+      // console.log("user", user)
+      // const res = await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/get-transaction', {
+      //   // userid: user._id,
+      //   headers: {
+      //     'Authorization': `Bearer ${user}`,
+      //     'Content-Type': 'application/json', // Adjust content type as needed
+      //   },
+      //   frequency,
+      //   selectedDate,
+      //   type
+      // })
+      const res = await axios.post('http://localhost:8080/api/v1/transaction/get-transaction', {
         frequency,
         selectedDate,
         type
-      })
+      }, {
+        headers: {
+          'Authorization': `Bearer ${user}`,
+          // 'Content-Type': 'application/json', // Adjust content type as needed
+        },
+      });
       // setLoading(false)
+      // console.log(res)
       setAllTransaction(res.data.transaction)
       // console.log(res.data.transaction)
     } catch (error) {
@@ -119,18 +136,37 @@ const HomePage = () => {
       const user = JSON.parse(localStorage.getItem('user'))
       setLoading(true)
       if (editable) {
-        await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/edit-transaction', {
+        await axios.post('http://localhost:8080/api/v1/transaction/edit-transaction', {
           payload: {
             ...values,
-            userid: user._id
+            // userid: user._id
           },
           transactionId: editable._id
+        },{
+          headers: {
+            'Authorization': `Bearer ${user}`,
+            // 'Content-Type': 'application/json', // Adjust content type as needed
+          },
         })
+        // await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/edit-transaction', {
+        //   payload: {
+        //     ...values,
+        //     userid: user._id
+        //   },
+        //   transactionId: editable._id
+        // })
         setLoading(false)
         message.success("Edited Transaction Successfully")
       }
       else {
-        await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/add-transaction', { ...values, userid: user._id })
+        console.log("safsa",values)
+        await axios.post('http://localhost:8080/api/v1/transaction/add-transaction', {...values}, {
+          headers: {
+            'Authorization': `Bearer ${user}`,
+            // 'Content-Type': 'application/json', // Adjust content type as needed
+          },
+        })
+        // await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/add-transaction', { ...values, userid: user._id })
         setLoading(false)
         message.success("Transaction Added Successfully")
       }
@@ -143,9 +179,18 @@ const HomePage = () => {
   }
 
   const handleDelete = async (record) => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    console.log("del",record._id)
     try {
+      console.log("del")
       setLoading(true)
-      await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/delete-transaction', { transactionId: record._id })
+      await axios.post('http://localhost:8080/api/v1/transaction/delete-transaction', { transactionId: record._id },{
+        headers: {
+          'Authorization': `Bearer ${user}`,
+          // 'Content-Type': 'application/json', // Adjust content type as needed
+        },
+      })
+      // await axios.post('https://expense-tracker-backend-3od7.onrender.com/api/v1/transaction/delete-transaction', { transactionId: record._id })
       setLoading(false)
       message.success("Transaction Deleted Successfully")
     } catch (error) {
@@ -197,14 +242,14 @@ const HomePage = () => {
         <div className="content">
           {
             viewData === 'table' ? <Table columns={columns} dataSource={allTransaction} />
-              :<Analytics allTransaction={allTransaction} />
+              : <Analytics allTransaction={allTransaction} />
           }
-          // {/* <Table columns={columns} dataSource={allTransaction}/> */}
+           {/* <Table columns={columns} dataSource={allTransaction}/> */}
         </div>
       </div>
-      <Modal title={ editable ? 'Edit Transaction' : 'Add Transaction'} open={showModal} onCancel={() => setShowModal(false)} footer={false}>
-      {/* initialValues={editable} */}
-        <Form layout='vertical'  onFinish={handleSubmit}>
+      <Modal title={editable ? 'Edit Transaction' : 'Add Transaction'} open={showModal} onCancel={() => setShowModal(false)} footer={false}>
+        {/* initialValues={editable} */}
+        <Form layout='vertical' onFinish={handleSubmit}>
           <Form.Item label="Amount" name="amount">
             <Input type="text" />
           </Form.Item>
